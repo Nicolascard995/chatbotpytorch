@@ -1,0 +1,60 @@
+# ChatBot Pytorch
+
+**ChatbotPyTorch**
+
+Este proyecto contiene un chatbot implementado en PyTorch. El chatbot ha sido entrenado para responder a varias intenciones que son categorizadas por etiquetas. Por ejemplo, puede saludar, despedirse, dar las gracias, proporcionar información sobre los artículos disponibles, métodos de pago, y más.
+
+El ChatBot Pytorch, ofrece flexibilidad y facilidad de uso. Puede ser utilizado en diversas aplicaciones, como atención al cliente, asistencia virtual, educación o entretenimiento. Al entrenar el modelo con conjuntos de datos relevantes, el chatbot puede aprender a comprender y responder adecuadamente a las consultas de los usuarios.
+
+chatbotpytorch
+├── [chat.py]
+├── intents.json
+├── [model.py]
+├── nltk_utils.py
+└── [train.py]
+
+## **Estructura del Proyecto**
+
+El proyecto consta de los siguientes archivos:
+
+- **`chat.py`**: Script principal que carga un modelo pre-entrenado de PyTorch y permite al usuario interactuar con el chatbot.
+- **`intents.json`**: Contiene las intenciones y respuestas que el chatbot está entrenado para reconocer y responder.
+- **`model.py`**: Define la arquitectura del modelo de red neuronal utilizado.
+- **`nltk_utils.py`**: Contiene funciones de procesamiento de texto como la tokenización y la creación de una bolsa de palabras.
+- **`train.py`**: Script utilizado para entrenar el modelo de red neuronal con los datos proporcionados en **`intents.json`**.
+
+## **Requisitos**
+
+- PyTorch
+- NLTK
+
+## **Cómo Ejecutar**
+
+1. **Entrenamiento:**
+    - Ejecute el script **`train.py`** para entrenar el modelo con los datos proporcionados en **`intents.json`**. Esto generará un archivo **`data.pth`** que contiene el estado del modelo entrenado.
+
+```bash
+bashCopy code
+python train.py
+
+```
+
+1. **Interacción:**
+    - Ejecute el script **`chat.py`** para iniciar una sesión interactiva con el chatbot.
+
+```bash
+bashCopy code
+python chat.py
+
+```
+
+## **Detalles Técnicos**
+
+- **Arquitectura del Modelo:**
+    - La arquitectura del modelo consiste en una red neuronal con 3 capas lineales y una función de activación ReLU.
+- **Procesamiento del Texto:**
+    - La tokenización y la stemming se realizan usando la biblioteca NLTK. Las palabras tokenizadas y stemmizadas se utilizan para crear una bolsa de palabras que sirve como entrada al modelo.
+- **Entrenamiento:**
+    - El modelo se entrena usando la pérdida de entropía cruzada y el optimizador Adam.
+- **Interacción:**
+    - Durante la interacción, el modelo toma la entrada del usuario, procesa el texto, y genera una etiqueta de intención. Luego, elige una respuesta adecuada de **`intents.json`** basada en la etiqueta de intención predicha.
